@@ -21,4 +21,13 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  //  API route for inserting course materials
+   app.post("/api/material", function(req, res) {
+    console.log(req.body)
+    db.courseMaterial.create(req.body).then(function(db) {
+      res.json(db);
+    });
+  });``
+  // add you routes here (I left the exemple routes to make it easy on us)
 };
