@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
   
   //  API route for inserting course materials
    app.post("/api/material", function(req, res) {
@@ -10,7 +11,9 @@ module.exports = function(app) {
     });
   });``
   
- 
+ app.get("/",function(req,res){
+    res.sendfile("./public/test.html");
+ })
 
 
 };
