@@ -23,13 +23,14 @@ exam_score int
 );
 create table course_material (
 id int not null auto_increment,
-material_type VARCHAR(30),
+
 title VARCHAR(30),
 chapter_title VARCHAR(30),
 chapter_number int not null,
 week_number int not null,
 order_in_chapter int not null,
-material_data text
+material text,
+image_url VARCHAR)(120)
 
 );
 

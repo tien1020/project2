@@ -3,13 +3,77 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <title>Home Page</title>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  
 </head>
 
 <body>
   {{{body}}}
 </body>
+<script>
+$(document).on("click",".add-section", function(){
+    console.log("i clicked on ok");
+    
+    
+    title=$(".title").val().trim();
+    order_in_chapter=$(".order_in_chapter").val().trim();
+    material=$(".material").val().trim();
+    week_number=$(".other").data("weeknum");
+    chapter_number=$(".other").data("chapnum");
+    chapter_title=$(".other").data("chapter_title");
+    photo=$(".image").get(0).files[0];
+    formData= new FormData();
+    formData.append("photo",photo);
 
+    material={
+       title:title,
+       order_in_chapter:order_in_chapter,
+       material:material,
+       week_number:week_number,
+       chapter_number:chapter_number,
+       chapter_title:chapter_title
+    }
+       ourMaterial=JSON.stringify(material);
+       formData.append("material",ourMaterial);
+       console.log(formData);
+
+
+
+      
+     
+    saveMaterial(formData).then(function(res){
+        console.log("success");
+        location.reload();
+    })
+   
+});
+
+
+
+
+
+
+
+
+
+
+
+
+ function saveMaterial(data) {
+    return $.ajax({
+      
+      type: "POST",
+      url: "/course_admin/add-section",
+      data:data,
+      processData: false,
+      contentType: false,
+      
+    });
+  }
+</script>
 </html>

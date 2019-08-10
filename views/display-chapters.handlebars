@@ -1,0 +1,37 @@
+<div class="container">
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4 text-center">Northwestern Bootcamp Course</h1>
+                  <p class=" text-center">This page is for course Admins only</p>
+                </div>
+              </div>
+              
+              <br>
+              
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1>Bootcamp Week {{weeknum}}</h1>
+            <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        {{#each chapterList}}
+                        <li class="list-group-item text-center"><a href="/course_admin/week/{{../weeknum}}/{{chapter}}">chapter {{chapter}}</a></li>
+                        {{/each}}
+                      
+              
+                     
+                    </ul>
+                  </div>
+        <br>
+        <button class="center btn waves-effect blue" type="submit" name="action">New Chapter
+                <i class="material-icons right">add</i>
+              </button>
+
+
+        
+        
+        </div>
+        <div class="col-4"></div>
+
+    </div>
+</div>
