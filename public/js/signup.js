@@ -17,6 +17,7 @@ $(document).on("click", "#signupBtn", function (event) {
         gender: gender,
         email: email,
         username: username,
+        password:password
         
     }
     data = JSON.stringify(newUser)
