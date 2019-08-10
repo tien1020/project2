@@ -1,0 +1,91 @@
+/* Background Style*/
+
+body {
+    background-color: #f7f7f7;
+}
+
+
+/* Course Content Menu */
+
+.vertical-menu {
+    width: 200px;
+}
+
+.vertical-menu a {
+    background-color: white;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.vertical-menu a:hover {
+    background-color: #2196f3;
+}
+
+.vertical-menu a.active {
+    background-color: white;
+    color: #2196f3;
+    font-size: 25px; 
+    font-family: 'Roboto', sans-serif; 
+}
+
+/* Course Content */
+.flex_container {
+    display: flex; 
+}
+
+h1 {
+    color: #2196f3; 
+    padding: 10px; 
+}
+
+.container {
+    text-align: center; 
+    background-color: white; 
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Course Description */
+
+.wrapper {
+    background-color: white; 
+    font-family: 'Roboto', sans-serif; 
+    padding: 10px 20px 10px 20px; 
+    margin: 10px; 
+}
+
+#title {
+    color: #2196f3; 
+    font-size: 22px; 
+    font-family: 'Roboto', sans-serif;
+}
+
+.quiz {
+    text-align: center; 
+    font-family: 'Roboto', sans-serif;
+}
+
+#quizbutton {
+    background-color: red; 
+}
+
+/* Footer */
+
+.footer {
+    background-color: #2196f3; 
+    left: 0; 
+    bottom: 0; 
+    width: 100%; 
+    color: white; 
+    height: 50px; 
+    font-family: 'Roboto', sans-serif; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+#copyright {
+    height: 25px; 
+}
