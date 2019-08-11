@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="col-sm-12">
+        <h2>Question/Comment</h2>
+
+        <form class="create-question">
+            <div class="form-group">
+
+                <input class="form-control1" id="signup-student-id" type="text" placeholder="Student ID"
+                    name="firstName">
+            </div>
+            <div class="form-group">
+                <label for="question">Question</label>
+                <textarea class="form-control" id="question" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    
+        <form class="create-answer">
+        <div class="card" style="width: 18rem;">
+                <!--<form class="create-answer"> -->
+        {{#each question}}
+            <div class="card-body">
+                <h5 class="card-title">questions</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">{{question}}</p>
+            </div>
+            
+               
+                <textarea    id="answer{{id}}"   rows="3"></textarea>
+            
+
+             <button data-id="{{id}}"  type="submit" class="btn btn-success answerbtn">answer</button>
+                {{/each}}
+           
+        </div>
+        </form>
+       
+        <!-- </form> -->
+
+
+
+    </div>
+</div>
+
+</div>

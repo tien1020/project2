@@ -9,7 +9,7 @@ module.exports = function(app) {
     db.courseMaterial.create(req.body).then(function(db) {
       res.json(db);
     });
-  });``
+  });
   
  app.get("/",function(req,res){
     res.sendfile("./public/test.html");
@@ -17,3 +17,5 @@ module.exports = function(app) {
 
 
 };
+
+
