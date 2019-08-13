@@ -15,7 +15,7 @@
             <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush">
                         {{#each weekList}}
-                        <li class="list-group-item text-center"><a href="/course_admin/week/{{week}}">week {{week}}</a></li>
+                        <li class="list-group-item text-center"><a href="/coursechapters/{{../cid}}/{{week}}">week {{week}}</a></li>
                         {{/each}}
                       
               
@@ -23,8 +23,8 @@
                     </ul>
                   </div>
         <br>
-        <button class="center btn waves-effect blue" type="submit" name="action">New Week
-                <i class="material-icons right">add</i>
+                    <a href="/add-week/{{cid}}" class="badge badge-primary">ADD week</a>
+
               </button>
 
 

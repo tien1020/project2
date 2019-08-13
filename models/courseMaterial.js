@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
         order_in_chapter:DataTypes.INTEGER,
         material:DataTypes.TEXT,
         image_url:DataTypes.STRING,
+        course_id:DataTypes.INTEGER,
 
     });
     return courseMaterial;

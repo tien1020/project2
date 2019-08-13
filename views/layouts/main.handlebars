@@ -16,15 +16,19 @@
   {{{body}}}
 </body>
 <script>
+
+  course_id=$(".other").data("course_id");
+  week_number=$(".other").data("weeknum");
+  chapter_number=$(".other").data("chapnum");
+ 
+
 $(document).on("click",".add-section", function(){
     console.log("i clicked on ok");
     
     
     title=$(".title").val().trim();
-    order_in_chapter=$(".order_in_chapter").val().trim();
+    var order_in_chapter=$(".order_in_chapter").val().trim();
     material=$(".material").val().trim();
-    week_number=$(".other").data("weeknum");
-    chapter_number=$(".other").data("chapnum");
     chapter_title=$(".other").data("chapter_title");
     photo=$(".image").get(0).files[0];
     formData= new FormData();
@@ -36,7 +40,8 @@ $(document).on("click",".add-section", function(){
        material:material,
        week_number:week_number,
        chapter_number:chapter_number,
-       chapter_title:chapter_title
+       chapter_title:chapter_title,
+       course_id:course_id
     }
        ourMaterial=JSON.stringify(material);
        formData.append("material",ourMaterial);
@@ -55,10 +60,80 @@ $(document).on("click",".add-section", function(){
 
 
 
+$(document).on("click",".del-section", function(){
+ order=$(this).data("order")
+deleteParams={
+  course_id:course_id,
+  week_number:week_number,
+  chapter_number:chapter_number,
+  order_in_chapter:order,
+}
+ 
+ deleteMaterial(deleteParams).then(function(res){
+        console.log("success");
+        location.reload();
+    })
+});
+
+
+$(document).on("click",".add-week",function(){
+  console.log("Add week");
+  cid=$("#course-id").data("cid");
+  console.log(cid)
+
+  week_number=$(".week-number").val();
+  url="/add-chapter/"+cid+"/"+week_number;
+  console.log(url);
+  $.ajax({
+      
+      type: "GET",
+      url: url
+      
+      
+    }).then(function(response){
+    document.open();
+    document.write(response);
+    document.close();
+    })
+
+  
+})
+$(document).on("click",".add-chapter", function(){
+    console.log("i clicked on ok");
+    var week=$(".add").data("week");
+    var cid=$(".add").data("cid");
+    chapter_number=$(".chapter-number").val().trim();
+    title=$(".title").val().trim();
+    var order_in_chapter=$(".order_in_chapter").val().trim();
+    material=$(".material").val().trim();
+    chapter_title=$(".chapter-title").val().trim();
+    photo=$(".image").get(0).files[0];
+    formData= new FormData();
+    formData.append("photo",photo);
+
+    material={
+       title:title,
+       order_in_chapter:order_in_chapter,
+       material:material,
+       week_number:week,
+       chapter_number:chapter_number,
+       chapter_title:chapter_title,
+       course_id:cid
+    }
+       ourMaterial=JSON.stringify(material);
+       formData.append("material",ourMaterial);
+       console.log(formData);
 
 
 
-
+      
+     
+    saveMaterial(formData).then(function(response){
+        window.location.replace("/coursechapters/"+response.course_id+"/"+response.week_number);
+         
+    })  
+   
+});
 
 
 
@@ -75,5 +150,17 @@ $(document).on("click",".add-section", function(){
       
     });
   }
+
+  function deleteMaterial(data){
+
+    return $.ajax({
+      url: "/delete-section", 
+      type: "DELETE",
+      data:data
+      
+    });
+  }
+
+  
 </script>
 </html>

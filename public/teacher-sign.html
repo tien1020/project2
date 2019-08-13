@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign up</title>
+    <title>Sign in</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
 </head>
 
 <body>          
@@ -21,19 +23,20 @@
                         <div class="nav-wrapper">
                             <a href="#" id="logo-container" class="brand-logo">Phil IT</a>
                             <ul class="right hide-on-med-and-down">
-                                <li><a href="#intro">Profile</a></li>
+                                <!-- <li><a href="#intro">Profile</a></li>
                                 <li><a href="#work">Courses</a></li>
                                 <li><a href="#team">Contact</a></li>
-                                <li><a href="#contact">Forum</a></li>
+                                <li><a href="#contact">Forum</a></li> -->
+                                <h4>TEACHER</h4>
                             </ul>
-                            <ul id="nav-mobile" class="side-nav">
+                            <!-- <ul id="nav-mobile" class="side-nav">
                                 <li><a href="#intro">Profile</a></li>
                                 <li><a href="#work">Courses</a></li>
                                 <li><a href="#team">Contact</a></li>
                                 <li><a href="#contact">Forum</a></li>
                                 <li><a href="https://github.com/joashp/material-design-template" target="_blank">Download</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <a href="#" data-activates="nav-mobile" class="button-collapse"><i
                                     class="mdi-navigation-menu"></i></a>
                         </div>
@@ -50,12 +53,12 @@
                             <h5 class="card-title">Sign In</h5>
                             <form method="">
                                 <div class="form-group">
-                                        <input class="form-control" id="signin-userName" type="text" placeholder="User Name" name="user-name">
+                                        <input class="form-control" id="signin-userName" type="text" placeholder="email" name="user-name">
                                     </div>
                                 <div class="form-group">
                                         <input class="form-control" id="signin-password" type="text" placeholder="Password" name="password">
                                     </div>
-                                <button type="submit" class="btn btn-primary">Sign In</button>
+                                <button type="submit" class="btn btn-primary bsum">Sign In</button>
 
                             </form>
                         </div>
@@ -68,9 +71,7 @@
                 <div class="container">
                     <div class="footer-copyright default_color">
                         <div class="container">
-                            Made by <a class="white-text" href="https://github.com/joashp/material-design-template">Joash
-                                Pereira</a>. Thanks to <a class="white-text"
-                                href="http://materializecss.com/">materializecss</a>
+                           PHIL IT &copy; 2019
                         </div>
                     </div>
         
@@ -78,5 +79,35 @@
             </footer>
 
 </body>
+<script>
+    console.log("hani")
+$(document).on("click",".bsum", function(){
+    console.log("hani");
+    event.preventDefault();
+    email=$("#signin-userName").val();
+   password=$("#signin-password").val();
+    form={
+password:password,
+email:email
+    }
+data=JSON.stringify(form);
+console.log(data)
+signIn(data).then(function(res){
+    console.log(res);
+    window.location.replace(res)
+})
+})
 
+function signIn(data) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "/teacher-sign-in",
+      data:data
+      
+    });
+  }
+</script>
 </html>

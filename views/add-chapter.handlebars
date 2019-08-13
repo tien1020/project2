@@ -12,11 +12,17 @@
         <br>
         <div class="row">
 
-            <div class="col-4">
+            <div class="col-12">
                 <form class="was-validated">
+                    <label for="formGroupExampleInput">Chapter Title</label>
+                    <input type="text" class="chapter-title form-control" id="formGroupExampleInput" placeholder="Enter chapter title">
+
+                    <label for="formGroupExampleInput">Chapter number</label>
+                    <input type="text" class="chapter-number form-control" id="formGroupExampleInput" placeholder="Enter chapter number">
+
                     <div class="mb-3">
                         <label for="validationTextarea">Section Title</label>
-                        <textarea data-weeknum="{{material.0.week_number}}" data-chapnum="{{material.0.chapter_number}}" data-chapter_title="{{material.0.chapter_title}}" data-course_id="{{material.0.course_id}}" class="title other form-control is-invalid" id="validationTextarea"
+                        <textarea data-week="{{week}}" data-cid="{{cid}}" class="title add other form-control is-invalid" id="validationTextarea"
                             placeholder="Enter Title" required></textarea>
                         <div class="invalid-feedback">
                             Section title required
@@ -56,33 +62,11 @@
                           </div>
                 </form>
                 <br>
-                <button type="button" class="add-section btn btn-success">Add Section</button>
+                <button type="button" class="add-chapter btn btn-success">Add Section</button>
 
             </div>
 
-            <div class="col-8">
-                <h1 class="center">{{material.0.chapter_title}}</h1>
-                 {{#each material}}
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-10">
-                        <h5 class="card-title">{{order_in_chapter}} - {{title}}</h5>
-                        </div>
-                        <div class="col-2"><button type="button" data-order="{{order_in_chapter}}" class="del-section btn btn-danger">Delete Section</button></div>
-                        </div>
-                        <p class="card-text">{{material}}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                    <img src="/upload-images/{{image_url}}" class="card-img-top" alt="...">
-                </div>
-                {{/each}}
 
-
-
-
-
-            </div>
 
 
         </div>

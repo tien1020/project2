@@ -1,0 +1,54 @@
+<div class="container-fluid">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 text-center">Northwestern Bootcamp Course</h1>
+                <p class=" text-center">This page is for course Admins only</p>
+            </div>
+        </div>
+
+
+
+
+        <br>
+        <div class="row">
+
+           
+
+            <div class="col-8">
+                <h1 class="center">Your Courses</h1>
+
+               {{#each course}}
+            
+                
+
+                <div class="card">
+                    <div class="card-body">
+                        <a href="/courseweeks/{{dataValues.cid}}"><h5 class="card-title">{{dataValues.course_title}}</h5></a>
+                        <p class="card-text">{{dataValues.course_description}}</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                    <img src="..." class="card-img-top" alt="...">
+                </div>
+            
+
+            {{/each}}
+
+
+
+
+
+            </div>
+            <div class="col-4">
+                <br>
+                <br>
+                <br>
+
+            <a href="/add-course.html" class="badge badge-primary">ADD Course</a>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
