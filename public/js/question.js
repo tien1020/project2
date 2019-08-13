@@ -25,7 +25,7 @@ $(".answerbtn").on("click", function (event) {
         forumQuestionId: $(this).attr("data-id")
     }
 
-    console.log(newAnswer.qid)
+    console.log(newAnswer.forumQuestionId)
     console.log(newAnswer)
     $.ajax("/api/answer", {
         type: "POST",

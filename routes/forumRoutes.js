@@ -45,12 +45,18 @@ app.post("/api/answer", function (req, res) {
   });
 });
 
-// app.get("/question",function(req,res){
-//   db.forumAnswer.findAll({}).then(function(dbforumAnswer) {
-//     data={answer:dbforumAnswer}
-//     res.render("question",data);
-// });
-// });
+app.get("/answer",function(req,res){
+  db.forumAnswer.findAll({}).then(function(dbforumAnswer) {
+    data={answer:dbforumAnswer}
+    res.render("answer",data);
+    
+});
 
+});
+app.get("/api/answer",function(req,res){
+  db.forumAnswer.findAll({}).then(function(dbforumAnswer) {
+      res.json(dbforumAnswer);
+});
+});
 
 };

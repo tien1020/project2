@@ -1,46 +1,39 @@
-<div class="container">
-    <div class="col-sm-12">
-        <h2>Question/Comment</h2>
 
-        <form class="create-question">
+<div class="container jumbotron">
+    <div class="col-sm-12">
+        <h2>If you have any question for us, please ask then here!</h2>
+
+        <form class="create-question" action="/action_page.php">
             <div class="form-group">
 
                 <input class="form-control1" id="signup-student-id" type="text" placeholder="Student ID"
                     name="firstName">
             </div>
             <div class="form-group">
-                <label for="question">Question</label>
-                <textarea class="form-control" id="question" rows="3"></textarea>
+
+                <textarea class="form-control" id="question" rows="3" placeholder="Please type question here!" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-
         </form>
-    
+        <br>
+        {{!-- {{#each question}}
         <form class="create-answer">
-        <div class="card" style="width: 18rem;">
-                <!--<form class="create-answer"> -->
-        {{#each question}}
-            <div class="card-body">
-                <h5 class="card-title">questions</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">{{question}}</p>
-            </div>
-            
-               
-                <textarea    id="answer{{id}}"   rows="3"></textarea>
-            
-
-             <button data-id="{{id}}"  type="submit" class="btn btn-success answerbtn">answer</button>
-                {{/each}}
+        <div class="card">
+                <h2 class="card-text"></h2>
            
+          <textarea id="answer{{id}}" rows="3" required></textarea>
+            <button data-id="{{id}}"  type="submit" class="btn btn-success answerbtn">answer</button>
+                {{/each}}
+                <br>
         </div>
-        </form>
-       
-        <!-- </form> -->
-
-
-
+        </form> --}}
+            {{#each question}}
+          <li data-id="{{this.id}}" class="list-group-item">
+              <p>Q{{id}}: "{{this.question}}"?</p>
+            <a href="answer" data-id="{{id}}">See answers</a>
+          </li>
+          <br>
+          {{/each}}
     </div>
 </div>
-
-</div>
+<p>{{answer}}</p>
