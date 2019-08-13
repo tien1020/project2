@@ -1,18 +1,17 @@
 {
   "development": {
-    "username": "root",
-    "password": "hani",
+    "username": "emmajudge",
+    "password": "ej@SQL!16",
     "database": "philit",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
+    "username": "emmajudge",
+    "password": "ej@SQL!16",
+    "database": "philit",
     "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
+    "dialect": "mysql"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
