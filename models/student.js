@@ -26,12 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     student.prototype.validPassword = function(password) {
       return (password==this.password);
     };
-    // Hooks are automatic methods that run during various phases of the User Model lifecycle
-    // In this case, before a User is created, we will automatically hash their password
   
-    // student.hook("beforeCreate", function(student) {
-    //   student.password = bcrypt.hashSync(student.password, bcrypt.genSaltSync(10), null);
-    // });
     
     return student;
   };

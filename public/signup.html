@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign up</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="./js/signup.js"></script>
 </head>
 
 <body>
@@ -22,18 +24,14 @@
                 <div class="nav-wrapper">
                     <a href="#" id="logo-container" class="brand-logo">Phil IT</a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#intro">Profile</a></li>
-                        <li><a href="#work">Courses</a></li>
-                        <li><a href="#team">Contact</a></li>
-                        <li><a href="#contact">Forum</a></li>
+                            <li><a href="#team">About US</a></li>
+                            <li><a href="/courses">Courses</a></li>
+                            <li><a href="/question">Forum</a></li>
                     </ul>
                     <ul id="nav-mobile" class="side-nav">
-                        <li><a href="#intro">Profile</a></li>
-                        <li><a href="#work">Courses</a></li>
-                        <li><a href="#team">Contact</a></li>
-                        <li><a href="#contact">Forum</a></li>
-                        <li><a href="https://github.com/joashp/material-design-template" target="_blank">Download</a>
-                        </li>
+                            <li><a href="#team">About US</a></li>
+                            <li><a href="/courses">Courses</a></li>
+                            <li><a href="/question">Forum</a></li>
                     </ul>
                     <a href="#" data-activates="nav-mobile" class="button-collapse"><i
                             class="mdi-navigation-menu"></i></a>
@@ -72,11 +70,6 @@
                             </div>
 
                             <div class="form-group">
-            <div class="col-sm-12">
-                <div class="wrapper wrapper--w780">
-                    <div class="card card-3" id="signup-card">
-                        <img src="img/2017_100_115_499107.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
 
                                 <input class="form-control" type="email" id="signup-email" placeholder="Email"
                                     name="email">
@@ -90,7 +83,7 @@
                                 <input class="form-control" id="signup-password" type="text" placeholder="Password"
                                     name="password">
                             </div>
-                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                            <button type="submit" id="signupBtn" class="btn btn-primary">Sign Up</button>
 
                         </form>
                     </div>
