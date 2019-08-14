@@ -4,6 +4,7 @@
     "password": "awop8k5pifd36uk1",
     "database": "skcig609ntkevc2l",
     "host": "wvulqmhjj9tbtc1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
