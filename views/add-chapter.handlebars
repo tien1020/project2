@@ -1,0 +1,62 @@
+
+        <div class="row">
+
+            <div class="col-12">
+                <form class="was-validated">
+                    <label for="formGroupExampleInput">Chapter Title</label>
+                    <input type="text" class="chapter-title form-control" id="formGroupExampleInput" placeholder="Enter chapter title">
+
+                    <label for="formGroupExampleInput">Chapter number</label>
+                    <input type="text" class="chapter-number form-control" id="formGroupExampleInput" placeholder="Enter chapter number">
+
+                    <div class="mb-3">
+                        <label for="validationTextarea">Section Title</label>
+                        <textarea data-week="{{week}}" data-cid="{{cid}}" class="title add other form-control is-invalid" id="validationTextarea"
+                            placeholder="Enter Title" required></textarea>
+                        <div class="invalid-feedback">
+                            Section title required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <select class="order_in_chapter custom-select" required>
+                              <option value="">Select Section Number</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                            <div class="invalid-feedback">section number required</div>
+                          </div>
+                    <div class="mb-3">
+                        <label for="validationTextarea">section text</label>
+                        <textarea class="material form-control is-invalid" id="validationTextarea"
+                            placeholder="Textarea" required></textarea>
+                        <div class="invalid-feedback">
+                             section text required
+                        </div>
+                    </div>
+
+                    <div class="custom-file">
+                            <input type="file" class="image" id="validatedCustomFile" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Upload Screenshot (not required)</label>
+                            
+                          </div>
+                </form>
+                <br>
+                <button type="button" class="add-chapter btn btn-success">Add Section</button>
+
+            </div>
+
+
+
+
+        </div>
+    </div>

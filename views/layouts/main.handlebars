@@ -3,12 +3,30 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <title>Home Page</title>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  
 </head>
 
 <body>
+  <div class="container-fluid">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 text-center">PHIL IT</h1>
+                <p class=" text-center">This page is for course Admins only</p>
+                <a href="/admin_course_list" class="text-center waves-effect waves-light btn">Go to Course List</a>
+
+            </div>
+        </div>
+
+
+
+
+        <br>
   {{{body}}}
 
 
@@ -24,5 +42,152 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/question.js"></script>
 </body>
+<script>
 
+  course_id=$(".other").data("course_id");
+  week_number=$(".other").data("weeknum");
+  chapter_number=$(".other").data("chapnum");
+ 
+
+$(document).on("click",".add-section", function(){
+    console.log("i clicked on ok");
+    
+    
+    title=$(".title").val().trim();
+    var order_in_chapter=$(".order_in_chapter").val().trim();
+    material=$(".material").val().trim();
+    chapter_title=$(".other").data("chapter_title");
+    photo=$(".image").get(0).files[0];
+    formData= new FormData();
+    formData.append("photo",photo);
+
+    material={
+       title:title,
+       order_in_chapter:order_in_chapter,
+       material:material,
+       week_number:week_number,
+       chapter_number:chapter_number,
+       chapter_title:chapter_title,
+       course_id:course_id
+    }
+       ourMaterial=JSON.stringify(material);
+       formData.append("material",ourMaterial);
+       console.log(formData);
+
+
+
+      
+     
+    saveMaterial(formData).then(function(res){
+        console.log("success");
+        location.reload();
+    })
+   
+});
+
+
+
+$(document).on("click",".del-section", function(){
+ order=$(this).data("order")
+deleteParams={
+  course_id:course_id,
+  week_number:week_number,
+  chapter_number:chapter_number,
+  order_in_chapter:order,
+}
+ 
+ deleteMaterial(deleteParams).then(function(res){
+        console.log("success");
+        location.reload();
+    })
+});
+
+
+$(document).on("click",".add-week",function(){
+  console.log("Add week");
+  cid=$("#course-id").data("cid");
+  console.log(cid)
+
+  week_number=$(".week-number").val();
+  url="/add-chapter/"+cid+"/"+week_number;
+  console.log(url);
+  $.ajax({
+      
+      type: "GET",
+      url: url
+      
+      
+    }).then(function(response){
+    document.open();
+    document.write(response);
+    document.close();
+    })
+
+  
+})
+$(document).on("click",".add-chapter", function(){
+    console.log("i clicked on ok");
+    var week=$(".add").data("week");
+    var cid=$(".add").data("cid");
+    chapter_number=$(".chapter-number").val().trim();
+    title=$(".title").val().trim();
+    var order_in_chapter=$(".order_in_chapter").val().trim();
+    material=$(".material").val().trim();
+    chapter_title=$(".chapter-title").val().trim();
+    photo=$(".image").get(0).files[0];
+    formData= new FormData();
+    formData.append("photo",photo);
+
+    material={
+       title:title,
+       order_in_chapter:order_in_chapter,
+       material:material,
+       week_number:week,
+       chapter_number:chapter_number,
+       chapter_title:chapter_title,
+       course_id:cid
+    }
+       ourMaterial=JSON.stringify(material);
+       formData.append("material",ourMaterial);
+       console.log(formData);
+
+
+
+      
+     
+    saveMaterial(formData).then(function(response){
+        window.location.replace("/coursechapters/"+response.course_id+"/"+response.week_number);
+         
+    })  
+   
+});
+
+
+
+
+
+ function saveMaterial(data) {
+    return $.ajax({
+      
+      type: "POST",
+      url: "/course_admin/add-section",
+      data:data,
+      processData: false,
+      contentType: false,
+      
+    });
+  }
+
+  function deleteMaterial(data){
+
+    return $.ajax({
+      url: "/delete-section", 
+      type: "DELETE",
+      data:data
+      
+    });
+  }
+
+  
+</script>
 </html>

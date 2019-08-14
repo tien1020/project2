@@ -1,0 +1,80 @@
+
+        <div class="row">
+
+            <div class="col-4">
+                <form class="was-validated">
+                    <div class="mb-3">
+                        <label for="validationTextarea">Section Title</label>
+                        <textarea data-weeknum="{{material.0.week_number}}" data-chapnum="{{material.0.chapter_number}}" data-chapter_title="{{material.0.chapter_title}}" data-course_id="{{material.0.course_id}}" class="title other form-control is-invalid" id="validationTextarea"
+                            placeholder="Enter Title" required></textarea>
+                        <div class="invalid-feedback">
+                            Section title required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <select class="order_in_chapter custom-select" required>
+                              <option value="">Select Section Number</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                            <div class="invalid-feedback">section number required</div>
+                          </div>
+                    <div class="mb-3">
+                        <label for="validationTextarea">section text</label>
+                        <textarea class="material form-control is-invalid" id="validationTextarea"
+                            placeholder="Textarea" required></textarea>
+                        <div class="invalid-feedback">
+                             section text required
+                        </div>
+                    </div>
+
+                    <div class="custom-file">
+                            <input type="file" class="image" id="validatedCustomFile" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Upload Screenshot (not required)</label>
+                            
+                          </div>
+                </form>
+                <br>
+                <button type="button" class="add-section btn btn-success">Add Section</button>
+
+            </div>
+
+            <div class="col-8">
+                <h1 class="center">{{material.0.chapter_title}}</h1>
+                 {{#each material}}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-10">
+                        <h5 class="card-title">{{order_in_chapter}} - {{title}}</h5>
+                        </div>
+                        <div class="col-2"><button type="button" data-order="{{order_in_chapter}}" class="del-section btn btn-danger">Delete Section</button></div>
+                        </div>
+                        <p class="card-text">{{material}}</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                    {{#if image_url}}
+                    <img src="/upload-images/{{image_url}}" class="card-img-top" alt="...">
+                    {{/if}}
+                </div>
+                {{/each}}
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
