@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           isEmail: true}},
       birth_date:DataTypes.DATE,
+      gender:DataTypes.STRING,
       major:DataTypes.STRING,
       picture:DataTypes.STRING,
       course_level:DataTypes.INTEGER,
