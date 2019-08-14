@@ -10,9 +10,7 @@ module.exports = function (app) {
   //  API route for inserting course materials
 
 
-  app.get("/", function (req, res) {
-    res.sendfile("./public/test.html");
-  })
+
   app.get("/api/go-course", function (req, res) {
 
     db.courseMaterial.findAll({}).then(function (result) {

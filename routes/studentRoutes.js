@@ -2,7 +2,7 @@ var db = require("../models");
 var passport = require("../config/passport");
 var sequelize = require("sequelize");
 module.exports = function(app) {
-    app.get("/return",function(req,res){
+    app.get("/",function(req,res){
         console.log("hani")
         db.courseTable.findAll().then(function(data){
           console.log(data[0].dataValues)
@@ -15,7 +15,7 @@ module.exports = function(app) {
 
     app.post("/student-sign-in", passport.authenticate("local"), function(req, res) {
         console.log( "this is the request.user  ",req.user);
-         res.json("/return")
+         res.json("/")
        });
  
        app.get("/checkIfLogedIn", function(req, res) {
