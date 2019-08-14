@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign up</title>
+    <title>Questions</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
-
-
+    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="min/custom-min.css" type="text/css" rel="stylesheet">
 </head>
-
 <body>
+    <!--Navigation-->
+    <div class="navbar-fixed">
+        <nav id="nav_f" class="default_color" role="navigation">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" id="logo-container" class="brand-logo">Phil IT</a>
+                    <ul class="right hide-on-med-and-down">
+                            <li><a href="#team">About US</a></li>
+                            <li><a href="/courses">Courses</a></li>
+                            <li><a href="/question">Forum</a></li>
+                    </ul>
+                    <ul id="nav-mobile" class="side-nav">
+                            <li><a href="#team">About US</a></li>
+                            <li><a href="/courses">Courses</a></li>
+                            <li><a href="/question">Forum</a></li>
+                    </ul>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i
+                            class="mdi-navigation-menu"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div class="container">
         <div class="col-sm-12">
+                <div class="wrapper wrapper--w780">
             <h2>Question/Comment</h2>
-
-            <form class= "create-question">
-                    <div class="form-group">
-                        
-                            <input class="form-control" id="signup-student-id" type="text" placeholder="Student ID" name="firstName">
-                        </div>
-                        <div class="form-group">
-                                <label for="question">Question</label>
-                                <textarea class="form-control" id="question" rows="3"></textarea>
-                              </div>
+            <form method="POST">
+                <div class="form-group">
+                    <input class="form-control" id="signup-firstName" type="text" placeholder="First Name"
+                        name="firstName">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="signup-lastName" type="text" placeholder="Last Name"
+                        name="lastName">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" id="signup-email" placeholder="Email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="question">Question</label>
+                    <textarea class="form-control" id="question" rows="3"></textarea>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-
             </form>
-
         </div>
     </div>
-
+    
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./js/question.js"></script>
-
+    <footer id="contact" class="page-footer default_color scrollspy">
+        <div class="container">
+            <div class="footer-copyright default_color">
+                <div class="container">
+                    Made by <a class="white-text" href="https://github.com/joashp/material-design-template">Joash
+                        Pereira</a>. Thanks to <a class="white-text"
+                        href="http://materializecss.com/">materializecss</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>
