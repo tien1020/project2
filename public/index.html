@@ -10,7 +10,7 @@
     <title>Phil IT | Course Materials</title>
 
     <!-- CSS  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -41,22 +41,14 @@
                         <li><a href="#team">About US</a></li>
                         <li><a href="/courses">Courses</a></li>
                         <li><a href="/question">Forum</a></li>
+                     
                         <li>
-                            <a href="/signin.html" id="logged-in" style="margin-right: 20px"
-                                class=" waves-effect waves-light btn">Sign In</a>
-
-
-
-                        </li>
-                        <li>
-                            <a class='dropdown-trigger btn' href='#' data-target='dropdown'>Drop Me!</a>
+                            <a class='dropdown-trigger btn' href='#' data-target='dropdown'id="logged-in" style="margin-right: 20px"
+                            class=" waves-effect waves-light btn">Sign In</a>
                             <ul id='dropdown' class='dropdown-content'>
-                                <li><a href="#!">one</a></li>
+                                <li><a href="/signup">Log Out</a></li>
                                 <li><a href="#!">two</a></li>
-                                <li class="divider" tabindex="-1"></li>
-                                <li><a href="#!">three</a></li>
-                                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                                
                             </ul>
                         </li>
                         <li id="logout"></li>
@@ -66,18 +58,13 @@
                         <li><a href="#team">About US</a></li>
                         <li><a href="/courses">Courses</a></li>
                         <li><a href="/question">Forum</a></li>
-                        <a href="/signin.html" id="logged-in" style="margin-right: 20px"
+                           <li>
+                            <a class='dropdown-trigger btn' href='#' data-target='dropdown2'id="logged-in" style="margin-right: 20px"
                             class=" waves-effect waves-light btn">Sign In</a>
-                        <li>
-                            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <li><a href="#!">one</a></li>
-                                <li><a href="#!">two</a></li>
-                                <li class="divider" tabindex="-1"></li>
-                                <li><a href="#!">three</a></li>
-                                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                            <!-- <ul id='dropdown2' class='dropdown-content'>
+                                <li><a href="/signup">Log Out</a></li>
+                                <li><a href="#!">two</a></li> -->
+                                
                             </ul>
                         </li>
 
@@ -324,9 +311,10 @@
 
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="min/plugin-min.js"></script>
 <script src="min/custom-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 <script>
     $.ajax({
 
@@ -361,6 +349,14 @@
 
         })
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $('.dropdown-trigger').dropdown();
     // document.addEventListener('DOMContentLoaded', function () {
     //     var elems = document.querySelectorAll('.dropdown-trigger');
     //     var instances = M.Dropdown.init(elems, options);
@@ -368,7 +364,7 @@
 
     // Or with jQuery
 
-    $('.dropdown-trigger').dropdown();
+    // $('.dropdown-trigger').dropdown();
 
 
 </script>
