@@ -1,17 +1,22 @@
 <div class="card text-center">
   <div class="card-header">
-    Question 5
+   Topic: {{title}} <br>
+   description: {{description}}
   </div>
   <div class="card-body">
+
+    {{#each answer}}
       <div class="card">
-           <h5 class="card-title">Answer for question 5</h5>
+                {{answer}}
       </div>
+      {{/each}}
    <br>
-    <textarea id="answer{{id}}" rows="4" cols="100" required></textarea>
+    <textarea id="answer{{id}}" rows="4" cols="100" required> </textarea>
     <br>
-    <a href="#" class="btn btn-primary">Submit answer</a>
+    <button class="btn btn-primary" data-id="{{id}}" id="replayId">Replay..</button>
   </div>
   <div class="card-footer text-muted">
-    Thank you for your questions!
+    Thank you for your questions!.....
   </div>
 </div>
+ 

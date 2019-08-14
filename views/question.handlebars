@@ -1,17 +1,22 @@
 
 <div class="container jumbotron">
     <div class="col-sm-12">
-        <h2>If you have any question for us, please ask then here!</h2>
+        
+        <div class="text-center">
+                    <h2>If you want disscus about any topic <b>This Is The Right Place</b></h2>
+        </div>
 
+<br>
         <form class="create-question" action="/action_page.php">
             <div class="form-group">
 
-                <input class="form-control1" id="signup-student-id" type="text" placeholder="Student ID"
-                    name="firstName">
+                <input class="form-control1" id="title" type="text" placeholder="Type your topic here!"
+                    name="firstName" required>
+                    <br>
             </div>
             <div class="form-group">
 
-                <textarea class="form-control" id="question" rows="3" placeholder="Please type question here!" required></textarea>
+                <textarea class="form-control" id="question" rows="3" placeholder="Discussion" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -29,11 +34,12 @@
         </form> --}}
             {{#each question}}
           <li data-id="{{this.id}}" class="list-group-item">
-              <p>Q{{id}}: "{{this.question}}"?</p>
-            <a href="answer" data-id="{{id}}">See answers</a>
+               <b>Topic</b>: <br>{{this.title}} <br><br>
+             <b>Discussion</b> :
+              <p>  "{{this.question}}"</p>
+            <a href="api/topics/{{id}}" data-id="{{id}}" id="replyTo">reply to</a>
           </li>
           <br>
           {{/each}}
     </div>
 </div>
-<p>{{answer}}</p>

@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
     var forumQuestion = sequelize.define("forumQuestion", {
     
         question: DataTypes.TEXT,
-        student_id:DataTypes.INTEGER,
+        title:DataTypes.STRING,
     });
     
     forumQuestion.associate = function(models) {
