@@ -19,9 +19,20 @@ $(document).on("click","#bsum", function(){
     console.log(data);
     saveMaterial(data).then(function(res){
         console.log("success");
+        window.location.href = "/api/go-course";
     })
    
 });
+
+
+
+
+
+
+
+
+
+
 
 
  function saveMaterial(data) {

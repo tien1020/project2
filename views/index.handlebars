@@ -1,33 +1,259 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+
+    <!--Hero-->
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <h1 class="text_h center header cd-headline letters type">
+                <span>I love</span>
+                <span class="cd-words-wrapper waiting">
+                    <b class="is-visible">learning</b>
+                    <b>teaching</b>
+                    <b>collaborating</b>
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <!--Intro and service-->
+    <div id="intro" class="section scrollspy">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="center header text_h2">Finally, a<span class="span_h2"> single</span> resource for <span
+                            class="span_h2"> all</span> of your development needs. </h2>
+                </div>
+
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="mdi-image-flash-on"></i>
+                        <h5 class="promo-caption">Results Oriented Program</h5>
+                        <p class="light center">Our full-stack web development course provides tips and shortcuts to
+                            fast track your individual coding journey.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="mdi-social-group"></i>
+                        <h5 class="promo-caption">Collaborative Experience</h5>
+                        <p class="light center">Interactive forum for users and our team of TAs: ask questions, connect
+                            with other students, and share resources.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="mdi-hardware-desktop-windows"></i>
+                        <h5 class="promo-caption">Customized Learning</h5>
+                        <p class="light center">Become a web developer at your own pace! Choose one of our recommended
+                            course plans or curate your own curriculum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Work-->
+    <div class="section scrollspy" id="work">
+        <div class="container">
+            <h2 class="header text_b">Course Offerings </h2>
+            <div class="row">
+                {{#each course}}
+                <div class="col s12 m4 l4" style="height:400px">
+                    <div class="card" style="height: inherit">
+                        <div class="card-image waves-effect waves-block waves-light" style="height: inherit">
+                            <img class="activator" src="/upload-images/{{dataValues.course_image}}" style="height: inherit">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{dataValues.course_title}} <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="/student-course/{{dataValues.cid}}">GO TO COURSE</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">{{dataValues.course_title}} <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>{{dataValues.course_description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{!-- <div class="col s12 m4 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project2.jpeg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">CSS <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">CSS link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">CSS <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project3.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">JavaScript <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">JavaScript link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">JavaScript<i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project4.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">MySQL <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">MySQL link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">MySQL <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project5.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">MongoDB<i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">MongoDB link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">MongoDB <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project6.jpeg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Python <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">Python link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Python <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    </div>
+
+    <!--Parallax-->
+    <div class="parallax-container">
+        <div class="parallax"><img src="styles/img/parallax1.png"></div>
+    </div>
+
+    <!--Team-->
+    <div class="section scrollspy" id="team">
+        <div class="container">
+            <h2 class="header text_b"> Our Team </h2>
+            <div class="row">
+                <div class="col s12 m2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar2.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Cecilia<br />
+                                <small><em><a class="red-text text-darken-1" href="#">TA</a></em></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar1.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Dan <br />
+                                <small><em><a class="red-text text-darken-1" href="#">TA</a></em></small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar3.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">
+                                Dawid <br />
+                                <small><em><a class="red-text text-darken-1" href="#">TA</a></em></small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar2.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Emma<br />
+                                <small><em><a class="red-text text-darken-1" href="#">TA</a></em></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar4.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Hani<br />
+                                <small><em><a class="red-text text-darken-1" href="#">TA</a></em></small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar2.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Tien<br />
+                                <small><em><a class="red-text text-darken-1" href="#">TA</a></em></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+

@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Phil IT!</title>
 
-    <link rel="stylesheet" href="styles/css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link hr="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="min/custom-min.css" type="text/css" rel="stylesheet">
-    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/css/cecilia.css">
+    <link href="css/custom-min.css" type="text/css" rel="stylesheet">
+    <link href="css/plugin-min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/css/quiz.css">
 </head>
 
 <body>
@@ -29,13 +29,14 @@
 
     <div class="navbar-fixed">
         <nav id="nav_f" class="default_color" role="navigation">
-            <a href="#" id="logo-container" class="brand-logo">Phil IT</a>
             <div class="container">
+                <a href="#" id="logo-container" class="brand-logo">Phil IT</a>
                 <div class="nav-wrapper">
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#intro">Profile</a></li>
-                        <li><a href="#work">Work</a></li>
-                        <li><a href="#team">Team</a></li>
+                        <li><a href="#work">Courses</a></li>
+                        <li><a href="#team">Contact</a></li>
+                        <li><a href="#contact">Forum</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,13 +65,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <h1>Chapter 1: HTML</h1>
+                    <h1>Chapter 1: HTML-Quiz</h1>
                     <br>
-                    <p>
-                        HTML is the standard markup language for Web pages.
-                        With HTML you can create your own Website.
-                        HTML is easy to learn - You will enjoy it!</p>
-                    <img src="styles/img/example.png">
+                        <p>1. What does HTML mean?:<br>
+                            <input type="radio" name="1.The word which means house is" value="maison">maison<br>
+                            <input type="radio" name="1.The word which means house is" value="quatre">quatre<br>
+                            <input type="radio" name="1.The word which means house is" value="soleil">soleil<br>
+                            <input type="radio" name="1.The word which means house is" value="poisson">poisson<br>
+                        </p>
+                        <p>2. The word which means "fish" is:<br>
+                            <input type="radio" name="2. The word which means fish is" value="maison">maison<br>
+                            <input type="radio" name="2. The word which means fish is" value="valise">valise<br>
+                            <input type="radio" name="2. The word which means fish is" value="soleil">soleil<br>
+                            <input type="radio" name="2. The word which means fish is" value="poisson">poisson<br>
+                        </p>
                 </div>
             </div>
         </div>
@@ -79,21 +87,10 @@
 
     <br>
     <!-- Course Description -->
-    <div class="wrapper" id="courseDescription">
-        <h id="title">About This Chapter</h>
-        <p>
-            What is Lorem Ipsum?
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-        <br>
-        <div class="quiz">
-            <h id="title">Test Your Knowledge</h>
-            <button type="button" class="btn btn-danger" id="quizbutton">Quiz</button>
+    <div class="wrapper" id="quiz">
+        <div class="quizsubmission">
+            <h id="title">Click Submit Once You're Done!</h>
+            <button type="button" class="btn btn-danger" id="quizsubmissionbtn">Submit</button>
         </div>
     </div>
 

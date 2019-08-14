@@ -1,0 +1,29 @@
+
+              
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1>Bootcamp Week {{week}}</h1>
+            <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        {{#each chapterList}}
+                        <li class="list-group-item text-center"><a href="/chapterdisplay/{{../cid}}/{{../week}}/{{chapter}}">chapter {{chapter}}</a></li>
+                        {{/each}}
+                      
+              
+                     
+                    </ul>
+                  </div>
+        <br>
+        <button class="center btn waves-effect blue" type="submit" name="action">New Chapter
+                <a href="/add-chapter/{{cid}}/{{week}}" class="material-icons right">add</a>
+              </button>
+
+
+        
+        
+        </div>
+        <div class="col-4"></div>
+
+    </div>
+</div>

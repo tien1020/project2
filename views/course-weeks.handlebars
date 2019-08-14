@@ -1,0 +1,28 @@
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1>Course Material</h1>
+            <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        {{#each weekList}}
+                        <li class="list-group-item text-center"><a href="/coursechapters/{{../cid}}/{{week}}">week {{week}}</a></li>
+                        {{/each}}
+                      
+              
+                     
+                    </ul>
+                  </div>
+        <br>
+                    <a href="/add-week/{{cid}}" class="badge badge-primary">ADD week</a>
+
+              </button>
+
+
+        
+        
+        </div>
+        <div class="col-4"></div>
+
+    </div>
+</div>

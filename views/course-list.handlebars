@@ -1,0 +1,43 @@
+
+        <div class="row">
+
+           
+
+            <div class="col-8">
+                <h1 class="center">Your Courses</h1>
+
+               {{#each course}}
+            
+                
+
+                <div class="card">
+                    <div class="card-body">
+                        <a href="/courseweeks/{{dataValues.cid}}"><h5 class="card-title">{{dataValues.course_title}}</h5></a>
+                        <p class="card-text">{{dataValues.course_description}}</p>
+                        <p class="card-text"><small class="text-muted">Created at {{dataValues.createdAt}}</small></p>
+                    </div>
+                    <img src="/upload-images/{{dataValues.course_image}}" class="card-img-top" alt="...">
+                </div>
+            
+
+            {{/each}}
+
+
+
+
+
+            </div>
+            <div class="col-4">
+                <br>
+                <br>
+                <br>
+
+            <a href="/add-course.html" class="badge badge-primary">ADD Course</a>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
