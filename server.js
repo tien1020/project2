@@ -35,6 +35,7 @@ require("./routes/htmlRoutes")(app);
 require("./routes/forumRoutes")(app);
 require("./routes/signupRoutes")(app);
 require("./routes/materialRoutes")(app);
+require("./routes/studentRoutes")(app);
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true

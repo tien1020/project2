@@ -160,10 +160,11 @@ app.post("/course_admin/add-section",upload.single("photo"),function (req, res) 
   console.log(req.body.material);
         queryValue=req.body.material;
         queryValue=JSON.parse(queryValue);
+        if (req.file){
         queryValue["image_url"]=req.file.filename
-        
+        }
         // console.log(queryValue);
-        console.log(req.file)
+        
   db.courseMaterial.create(queryValue).then(function (response) {
      
       console.log(response);

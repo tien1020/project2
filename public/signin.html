@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
 </head>
 
 <body>          
@@ -19,7 +21,7 @@
                 <nav id="nav_f" class="default_color" role="navigation">
                     <div class="container">
                         <div class="nav-wrapper">
-                            <a href="#" id="logo-container" class="brand-logo">Phil IT</a>
+                            <a href="/" id="logo-container" class="brand-logo">Phil IT</a>
                             <ul class="right hide-on-med-and-down">
                                 <li><a href="#intro">Profile</a></li>
                                 <li><a href="#work">Courses</a></li>
@@ -55,7 +57,7 @@
                                 <div class="form-group">
                                         <input class="form-control" id="signin-password" type="text" placeholder="Password" name="password">
                                     </div>
-                                <button type="submit" class="btn btn-primary">Sign In</button>
+                                <button type="submit" class="btn btn-primary bsum">Sign In</button>
 
                             </form>
                         </div>
@@ -78,5 +80,35 @@
             </footer>
 
 </body>
+<script>
+    console.log("hani")
+$(document).on("click",".bsum", function(){
+    console.log("hani");
+    event.preventDefault();
+    email=$("#signin-userName").val();
+   password=$("#signin-password").val();
+    form={
+password:password,
+email:email
+    }
+data=JSON.stringify(form);
+console.log(data)
+signIn(data).then(function(res){
+    console.log(res);
+    window.location.replace(res)
+})
+})
 
+function signIn(data) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "/student-sign-in",
+      data:data
+      
+    });
+  }
+</script>
 </html>

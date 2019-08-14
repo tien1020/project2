@@ -1,15 +1,4 @@
-<div class="container-fluid">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4 text-center">Northwestern Bootcamp Course</h1>
-                <p class=" text-center">This page is for course Admins only</p>
-            </div>
-        </div>
 
-
-
-
-        <br>
         <div class="row">
 
             <div class="col-4">
@@ -74,7 +63,9 @@
                         <p class="card-text">{{material}}</p>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
+                    {{#if image_url}}
                     <img src="/upload-images/{{image_url}}" class="card-img-top" alt="...">
+                    {{/if}}
                 </div>
                 {{/each}}
 
