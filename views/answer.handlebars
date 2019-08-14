@@ -1,0 +1,22 @@
+<div class="card text-center">
+  <div class="card-header">
+   Topic: {{title}} <br>
+   description: {{description}}
+  </div>
+  <div class="card-body">
+
+    {{#each answer}}
+      <div class="card">
+                {{answer}}
+      </div>
+      {{/each}}
+   <br>
+    <textarea id="answer{{id}}" rows="4" cols="100" required> </textarea>
+    <br>
+    <button class="btn btn-primary" data-id="{{id}}" id="replayId">Replay..</button>
+  </div>
+  <div class="card-footer text-muted">
+    Thank you for your questions!.....
+  </div>
+</div>
+ 
