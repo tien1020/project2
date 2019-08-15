@@ -2,13 +2,24 @@ path= require("path")
 var db = require("../models");
 var sequelize = require("sequelize")
 var upload = require("../config/upload")
-var passport = require("../config/passport")
+var passport = require("../config/passport");
+var isAtecher = require("../config/isAteacher")
 module.exports = function (app) {
 
 
   //  API route for inserting course materials
 
 
+<<<<<<< HEAD
+
+  // app.get("/api/go-course", function (req, res) {
+
+  //   db.courseMaterial.findAll({}).then(function (result) {
+  //     data = { material: result }
+  //     res.render("materialcreation", data);
+  //   });
+  // })
+=======
   app.get("/", function (req, res) {
     res.sendfile("./public/test.html");
   })
@@ -18,6 +29,7 @@ module.exports = function (app) {
       res.render("materialcreation", data);
     });
   })
+>>>>>>> 1705df6cf9c97fe7505b556e501b8227b396a816
 
 
 
@@ -26,7 +38,7 @@ module.exports = function (app) {
 
   }); ``
 
-  app.get("/courseweeks/:cid",function (req, res) {
+  app.get("/courseweeks/:cid",isAtecher,function (req, res) {
     
     db.courseMaterial.findAll({
       attributes: [[sequelize.fn("distinct", sequelize.col("week_number")), "week"]],
@@ -39,10 +51,8 @@ module.exports = function (app) {
         week.push(weeknum)
       }
       console.log(week);
-      var myobject = {
-        cid:req.params.cid,
-        weekList: week}
-      res.render("course-weeks", myobject);
+     
+      res.render("course-weeks", {layout:"teachers-page",cid:req.params.cid,weekList: week});
 
     })
 
@@ -52,16 +62,19 @@ module.exports = function (app) {
 
 
 
-app.get("/admin_course_list",function(req,res){
+app.get("/admin_course_list",isAtecher,function(req,res){
   console.log("what i need now",req.user)
   if (req.user){
     tid=req.user.id;
     db.courseTable.findAll({where:{tid:tid}}).then(function (data) {
-      console.log(data[0].dataValues);
+      try{console.log(data[0].dataValues);
      
-       res.render("course-list",{course:data});
+       res.render("course-list",{course:data});} catch(error){
+        res.render("course-list",{});
+       };
+       
     })
-
+   
 
   }
   else{
@@ -106,7 +119,7 @@ app.get("/admin_course_list",function(req,res){
 
   // })
 
-  app.get("/coursechapters/:cid/:week", function (req, res) {
+  app.get("/coursechapters/:cid/:week",isAtecher, function (req, res) {
     var week = req.params.week;
     var cid=req.params.cid;
     db.courseMaterial.findAll({
@@ -125,13 +138,14 @@ app.get("/admin_course_list",function(req,res){
       var myobject = { chapterList: chapter,
       cid:cid,
       week:week }
-      res.render("display-chapters", myobject);
+      res.render("display-chapters", {layout:"teachers-page",
+    chapterList:chapter, cid:cid,week:week});
 
     })
 
   })
 
-  app.get("/chapterdisplay/:cid/:week/:chapter",function(req,res){
+  app.get("/chapterdisplay/:cid/:week/:chapter",isAtecher,function(req,res){
     var cid=req.params.cid;
   var week = req.params.week;
    var chap = req.params.chapter;
@@ -147,11 +161,17 @@ app.get("/admin_course_list",function(req,res){
       }
     }).then(function(result){
       console.log(result)
-      data={material:result}
-      res.render("display-course",data);
+      
+      res.render("display-course",{layout:"teachers-page",
+    material:result});
   })
 });
+<<<<<<< HEAD
+
+app.post("/course_admin/add-section",isAtecher,upload.single("photo"),function (req, res) {
+=======
 app.post("/course_admin/add-section",upload.single("photo"),function (req, res) {
+>>>>>>> 1705df6cf9c97fe7505b556e501b8227b396a816
   
   console.log(req.body.material);
         queryValue=req.body.material;
@@ -185,45 +205,55 @@ app.get("/teacher-sign",function(req,res){
   res.sendFile(path.join(__dirname, "../public/teacher-sign.html"));
   
 });
+<<<<<<< HEAD
+
+app.delete("/delete-section",isAtecher,function(req,res){
+=======
 app.delete("/delete-section",function(req,res){
+>>>>>>> 1705df6cf9c97fe7505b556e501b8227b396a816
  db.courseMaterial.destroy({ where: req.body }).then(function(data) {
   res.json(data);
 });
 });
 
 
-app.post("/create-course",upload.single("photo"),function (req, res) {
+app.post("/create-course",isAtecher,upload.single("photo"),function (req, res) {
   
   console.log(req.user);
         queryValue=req.body.courseInfo;
         queryValue=JSON.parse(queryValue);
-        queryValue["course_image"]=req.file.filename;
+       try{ queryValue["course_image"]=req.file.filename;} catch{queryValue["course_image"]="undefined"}
         queryValue["tid"]=req.user.id;
         
         // console.log(queryValue);
-        console.log(req.file)
+        // console.log(req.file)
   db.courseTable.create(queryValue).then(function (response) {
      
       
       console.log("this is the course id what i am looking for" ,response.dataValues.cid);
 
-      res.json("/courseweeks/"+response.dataValues.cid);
+      res.render("add-week",{layout:"teachers-page",
+        cid:response.dataValues.cid});
   }
 
 ); 
 
 });
-app.get("/add-week/:cid",function(req,res){
-  courseId={cid: req.params.cid}
+app.get("/add-week/:cid",isAtecher,function(req,res){
+  
 
-  res.render("add-week",courseId);
+  res.render("add-week",{layout:"teachers-page",cid: req.params.cid
+});
 })
-app.get("/add-chapter/:cid/:week",function(req,res){
+
+app.get("/add-chapter/:cid/:week",isAtecher,function(req,res){
   console.log("want to add week")
   parameters={cid:req.params.cid,
                week:req.params.week} 
 
-  res.render("add-chapter",parameters);
+  res.render("add-chapter",{layout:"teachers-page",
+cid:req.params.cid,
+week:req.params.week});
   
 })
 

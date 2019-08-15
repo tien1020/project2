@@ -4,21 +4,33 @@
 <head>
     <!-- template source - https://github.com/joashp
         /material-design-template -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#2196F3">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Phil IT | Course Materials</title>
 
+     
     <!-- CSS  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
-    <link href="min/custom-min.css" type="text/css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <link href="/min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="/min/custom-min.css" type="text/css" rel="stylesheet">
+
+    <style>
+  
+      
+    </style>
+    
 
 </head>
 
-<body id="top" class="scrollspy">
+<body id="top" class="scrollspy" style="font-family: monospace">
         <!-- Pre Loader -->
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -36,16 +48,22 @@
                     <a href="/" id="logo-container" class="brand-logo">Phil IT</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#intro">About US</a></li>
-                        <li><a href="#work">Courses</a></li>
+                        <li><a href="/get-courses">Courses</a></li>
                         <li><a href="#team">Contact</a></li>
                         <li><a href="#contact">Forum</a></li>
+                        <li><a href="/teacher-sign.html">Teacher</a></li>
+                        <li><a href="/profile">Profile</a></li>
                         <li>
-                            <a href="/signin.html" id="logged-in" style="margin-right: 20px" class=" waves-effect waves-light btn">Sign In</a>
-                           
+                           <a class='dropdown-trigger btn' href='/profile' data-target='dropdown'id="logged-in" style="margin-right: 20px"
+                           class=" waves-effect waves-light btn">User</a>
+                           <ul id='dropdown' class='dropdown-content'>
+                               <li><a id="sign" href="/signin.html"></a></li>
+                               
+                           </ul>
 
 
                         </li>
-                        <li id="logout"></li>
+                        
 
                     </ul>
                     <ul id="nav-mobile" class="side-nav">
@@ -65,15 +83,16 @@
 
 {{{body}}}
 
+
+
+
 <footer id="contact" class="page-footer default_color scrollspy">
         <div class="container">
-            
-        </div>
-        </div>
-        <div class="footer-copyright default_color">
-            <div class="container">
-                Made by <a class="white-text" href="https://github.com/joashp/material-design-template">Joash
-                    Pereira</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
+
+            <div class="footer-copyright default_color">
+                <div class="container">
+                    <h4 class="text-white">Phil IT &COPY;</h4>
+                </div>
             </div>
         </div>
     </footer>
@@ -83,9 +102,14 @@
     
 
 </body>
-<script src="min/plugin-min.js"></script>
-<script src="min/custom-min.js"></script>
+<script src="/min/plugin-min.js"></script>
+<script src="/min/custom-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script>
+      $('.dropdown-trigger').dropdown();
+      $('.dropdown-trigger-sid').dropdown();
+        
 $.ajax({
      
       type: "GET",
@@ -94,18 +118,15 @@ $.ajax({
       
     }).then(function(res){
   if (res=="no"){
-    $("#logged-in").html("Sign In");
-    $("#logout").empty();
-
+    $("#logged-in").html("User");
+    
+    $("#sign").html("Sign In");
   }
   else{
     $("#logged-in").html(res.firstname);
     
-     logout=$("<a>");
-        logout.html("Log-Out");
-        logout.attr("class","waves-effect waves-light btn logout-button");
-        logout.attr("href","/logout")
-     $("#logout").append(logout);
+    $("#sign").html("LogOut"); 
+     $("#sign").attr("href","/logout"); 
   }
     });
 
@@ -119,6 +140,38 @@ $.ajax({
      
    })
 })
+
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+    $('.collapsible').collapsible('open');
+
+  });
+  
+
+
+ $(document).on("click","#profile-update", function(){
+     console.log("clicked")
+     photo = $("#picture").get(0).files[0];
+     formData = new FormData();
+      formData.append("photo", photo);
+        $.ajax({
+     
+    type: "POST",
+    url: "/profile-update",
+    processData: false,
+    contentType: false,
+
+     data:formData
+    
+     
+   }).then(function(res){
+        if (res=="error"){
+            alert("please upload an image before you click on the link");
+        }
+      else { window.location.replace("/profile");}
+   })
+})
+
 </script>
 
 </html>

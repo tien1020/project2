@@ -17,18 +17,22 @@ $(document).on("click", "#signupBtn", function (event) {
         gender: gender,
         email: email,
         username: username,
-        password:password
-        
+        password:password,
+        role:"student"
     }
     data = JSON.stringify(newUser)
-    console.log(newUser)
+    
     saveUser(data).then(function (res) {
-        console.log("new user data saved");
-    })
+        if(res=="error"){
+            alert("Try Again Please")
+        }
+        else{
+            window.location.replace("/thanks.html");
+        }
 });
 
 function saveUser(newUser) {
-    alert(newUser)
+   
     return $.ajax({
         headers: {
             "Content-Type": "application/json"
@@ -38,10 +42,4 @@ function saveUser(newUser) {
         data: newUser
     });
 }
-
-// "development": {
-//     "username": "root",
-//     "password": "hani",
-//     "database": "philit",
-//     "host": "localhost",
-//     "dialect": "mysql"
+})

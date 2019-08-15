@@ -1,40 +1,42 @@
- <div class="flex_container">
-        <div class="vertical-menu">
-            <a href="#" class="active">Course Content</a>
-            {{#each weeks.weekList}}
-            <a href="/student-course-chapters/{{../weeks.cid}}/{{week}}">week {{week}}</a>
-            {{/each}}
+<div class="row" style=" border-radius:20px;color:#2196f3;backgroud-color:red">
+
+
+  <div class="col-2 my-side-bar">
+
+
+
+
+    <ul class="collapsible">
+      {{#each weeks.weekList}}
+      <li>
+        <div class="collapsible-header"><i class="material-icons">book</i> Week {{week}}</div>
+        {{#each chapter}}
+        <div class="collapsible-body"><span><a href="/student-course-display/{{../../weeks.cid}}/{{../week}}/{{this}}">
+              Chapter {{this}} </a></span></div>
+        {{/each}}
+      </li>
+      {{/each}}
+    </ul>
+
+
+
+  </div>
+  <div class="col-10">
+      <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img height="600px" src="/upload-images/Clipart.jpg">
+       
+        </div>
+        <div class="card-content">
+          <p></p>
         </div>
 
-        <!-- Course Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
+  </div>
+  </div>
 
-    <br>
-    <!-- Course Description -->
-    <div class="wrapper" id="courseDescription">
-        <h id="title">About This Chapter</h>
-        <p>
-            What is Lorem Ipsum?
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-        <br>
-        <div class="quiz">
-            <h id="title">Test Your Knowledge</h>
-            <button type="button" class="btn btn-danger" id="quizbutton">Quiz</button>
-        </div>
-    </div>
 
-    <br>
+</div>

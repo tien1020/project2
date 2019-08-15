@@ -5,8 +5,8 @@ module.exports = function(app) {
  //write your routes here
  app.post("/api/student", function(req,res){
     
-    db.student.create(req.body).then(function(db){
+  try {  db.student.create(req.body).then(function(db){
         res.json(db);
-    });
+    });}catch{res.json("error")}
  });
 };

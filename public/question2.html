@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- template source - https://github.com/joashp
+        /material-design-template -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#2196F3">
+    <title>Phil IT | Course Materials</title>
+
+    <!-- CSS  -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="min/custom-min.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+
+<body id="top" class="scrollspy">
+
+    <!-- Pre Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+
+    <!--Navigation-->
+    <div class="navbar-fixed">
+        <nav id="nav_f" class="default_color" role="navigation">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="/" id="logo-container" class="brand-logo">Phil IT</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#team">About US</a></li>
+                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="/question">Forum</a></li>
+                     
+                        <li>
+                            <a class='dropdown-trigger btn' href='#' data-target='dropdown'id="logged-in" style="margin-right: 20px"
+                            class=" waves-effect waves-light btn">Sign In</a>
+                            <ul id='dropdown' class='dropdown-content'>
+                                <li><a href="/signup">Log Out</a></li>
+                                <li><a href="#!">two</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li id="logout"></li>
+
+                    </ul>
+                    <ul id="nav-mobile" class="side-nav">
+                        <li><a href="#team">About US</a></li>
+                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="/question">Forum</a></li>
+                           <li>
+                            <a class='dropdown-trigger btn' href='#' data-target='dropdown2'id="logged-in" style="margin-right: 20px"
+                            class=" waves-effect waves-light btn">Sign In</a>
+                            <!-- <ul id='dropdown2' class='dropdown-content'>
+                                <li><a href="/signup">Log Out</a></li>
+                                <li><a href="#!">two</a></li> -->
+                                
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i
+                            class="mdi-navigation-menu"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--Hero-->
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <h1 class="text_h center header cd-headline letters type">
+                <span>I love</span>
+                <span class="cd-words-wrapper waiting">
+                    <b class="is-visible">learning</b>
+                    <b>teaching</b>
+                    <b>collaborating</b>
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <!--Intro and service-->
+    <div id="intro" class="section scrollspy">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="center header text_h2">Finally, a<span class="span_h2"> single</span> resource for <span
+                            class="span_h2"> all</span> of your development needs. </h2>
+                </div>
+
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="mdi-image-flash-on"></i>
+                        <h5 class="promo-caption">Results Oriented Program</h5>
+                        <p class="light center">Our full-stack web development course provides tips and shortcuts to
+                            fast track your individual coding journey.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="mdi-social-group"></i>
+                        <h5 class="promo-caption">Collaborative Experience</h5>
+                        <p class="light center">Interactive forum for users and our team of TAs: ask questions, connect
+                            with other students, and share resources.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="mdi-hardware-desktop-windows"></i>
+                        <h5 class="promo-caption">Customized Learning</h5>
+                        <p class="light center">Become a web developer at your own pace! Choose one of our recommended
+                            course plans or curate your own curriculum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Work-->
+    <div class="section scrollspy" id="work">
+        <div class="container">
+            <h2 class="header text_b">Course Offerings </h2>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project1.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">HTML <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">HTML link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">HTML <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project2.jpeg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">CSS <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">CSS link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">CSS <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project3.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">JavaScript <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">JavaScript link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">JavaScript<i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/project4.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">MySQL <i
+                                    class="mdi-navigation-more-vert right"></i></span>
+                            <p><a href="#">MySQL link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">MySQL <i
+                                    class="mdi-navigation-close right"></i></span>
+                            <p>Here is some more information about this project that is only revealed once clicked on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--Parallax-->
+    <div class="parallax-container">
+        <div class="parallax"><img src="styles/img/parallax1.png"></div>
+    </div>
+
+    <!--Team-->
+    <div class="section scrollspy" id="team">
+        <div class="container">
+            <h2 class="header text_b"> Our Team </h2>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar2.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Cecilia<br />
+                                <small><em><a class="red-text text-darken-1">TA</a></em></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar1.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Dan <br />
+                                <small><em><a class="red-text text-darken-1">TA</a></em></small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar3.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">
+                                Dawid <br />
+                                <small><em><a class="red-text text-darken-1">TA</a></em></small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar2.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Emma<br />
+                                <small><em><a class="red-text text-darken-1">TA</a></em></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar4.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Hani<br />
+                                <small><em><a class="red-text text-darken-1">TA</a></em></small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card card-avatar">
+                        <div class="waves-effect waves-block waves-light">
+                            <img class="activator" src="styles/img/avatar2.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Tien<br />
+                                <small><em><a class="red-text text-darken-1">TA</a></em></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer id="contact" class="page-footer default_color scrollspy">
+        <div class="container">
+
+            <div class="footer-copyright default_color">
+                <div class="container">
+                    Made by <a class="white-text" href="https://github.com/joashp/material-design-template">Joash
+                        Pereira</a>. Thanks to <a class="white-text"
+                        href="http://materializecss.com/">materializecss</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+
+
+</body>
+<script src="min/plugin-min.js"></script>
+<script src="min/custom-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    $.ajax({
+
+        type: "GET",
+        url: "/checkIfLogedIn",
+
+
+    }).then(function (res) {
+        if (res == "no") {
+            $("#logged-in").html("Sign In");
+            $("#logout").empty();
+
+        }
+        else {
+            $("#logged-in").html(res.firstname);
+
+            logout = $("<a>");
+            logout.html("Log-Out");
+            logout.attr("class", "waves-effect waves-light btn logout-button");
+            logout.attr("href", "/logout")
+            $("#logout").append(logout);
+        }
+    });
+
+
+    $(document).on("click", ".logout-button", function () {
+        $.ajax({
+
+            type: "GET",
+            url: "/checkIfLogedIn",
+
+
+        })
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $('.dropdown-trigger').dropdown();
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var elems = document.querySelectorAll('.dropdown-trigger');
+    //     var instances = M.Dropdown.init(elems, options);
+    // });
+
+    // Or with jQuery
+
+    // $('.dropdown-trigger').dropdown();
+
+
+</script>
+
+</html>
