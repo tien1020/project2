@@ -1,4 +1,4 @@
-
+console.log("here i am")
 
 $(document).on("click","#thisone", function (event) {
     event.preventDefault();
@@ -30,7 +30,7 @@ $("#replyTo").on("click",function(event){
 
 
 
-$("#replayId").on("click", function (event) {
+$(document).on("click","#replayId" ,function (event) {
     event.preventDefault();
     // alert("onclick..!"+ $("#answer"+$(this).attr("data-id") ).val().trim() +" "+$(this).attr("data-id"))
     var replay= {
