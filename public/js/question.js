@@ -1,4 +1,7 @@
-$(".create-question").on("submit", function (event) {
+console.log("hani")
+
+
+$("#thisone").on("click", function (event) {
     event.preventDefault();
 
     var newQuestion = {

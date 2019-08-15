@@ -196,7 +196,7 @@ module.exports = function (app) {
 app.get("/get-courses",function(req,res){
   db.courseTable.findAll().then(function(data){
 
-    res.render("getcourse",{layout:"user",course:data})
+    res.render("getcourse",{layout:"justcourse",course:data})
   })
 })
 
