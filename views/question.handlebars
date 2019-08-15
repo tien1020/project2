@@ -1,0 +1,50 @@
+
+<div class="container jumbotron">
+    <div class="col-sm-12">
+        
+        <div class="text-center">
+                    <h2>If you want disscus about any topic <b>This Is The Right Place</b></h2>
+        </div>
+
+<br>
+        <form class="create-question" action="/action_page.php">
+            <div class="form-group">
+
+                <input class="form-control1" id="title" type="text" placeholder="Type your topic here!"
+                    name="firstName" required>
+                    <br>
+            </div>
+            <div class="form-group">
+
+                <textarea class="form-control" id="question" rows="3" placeholder="Discussion" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br>
+        {{!-- {{#each question}}
+        <form class="create-answer">
+        <div class="card">
+                <h2 class="card-text"></h2>
+           
+          <textarea id="answer{{id}}" rows="3" required></textarea>
+            <button data-id="{{id}}"  type="submit" class="btn btn-success answerbtn">answer</button>
+                {{/each}}
+                <br>
+        </div>
+        </form> --}}
+            {{#each question}}
+          <li data-id="{{this.id}}" class="list-group-item">
+              <div class="style3">
+               <b>Topic</b>:
+              </div>
+            {{this.title}} <br><br>
+               <div class="style3">
+                  <b>Discussion</b> : 
+               </div>
+              <p>"{{this.question}}"</p>
+            <a href="api/topics/{{id}}" data-id="{{id}}" id="replyTo">Reply to...</a>
+          </li>
+          <br>
+          {{/each}}
+    </div>
+</div>

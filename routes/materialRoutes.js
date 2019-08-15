@@ -1,5 +1,4 @@
 path= require("path")
-
 var db = require("../models");
 var sequelize = require("sequelize")
 var upload = require("../config/upload")
@@ -11,6 +10,7 @@ module.exports = function (app) {
   //  API route for inserting course materials
 
 
+<<<<<<< HEAD
 
   // app.get("/api/go-course", function (req, res) {
 
@@ -19,6 +19,17 @@ module.exports = function (app) {
   //     res.render("materialcreation", data);
   //   });
   // })
+=======
+  app.get("/", function (req, res) {
+    res.sendfile("./public/test.html");
+  })
+  app.get("/api/go-course", function (req, res) {
+    db.courseMaterial.findAll({}).then(function (result) {
+      data = { material: result }
+      res.render("materialcreation", data);
+    });
+  })
+>>>>>>> 1705df6cf9c97fe7505b556e501b8227b396a816
 
 
 
@@ -89,7 +100,6 @@ app.get("/admin_course_list",isAtecher,function(req,res){
   //     res.render("display-week",data);
   //     });
   //   })
-
   // app.get("/course_admin/week/:weeknum",function(req,res){
   //   weeknum=req.params.weeknum;
   //   db.courseMaterial.max("chapter_number",{where:{week_number:weeknum}}).then(function(data){
@@ -156,8 +166,12 @@ app.get("/admin_course_list",isAtecher,function(req,res){
     material:result});
   })
 });
+<<<<<<< HEAD
 
 app.post("/course_admin/add-section",isAtecher,upload.single("photo"),function (req, res) {
+=======
+app.post("/course_admin/add-section",upload.single("photo"),function (req, res) {
+>>>>>>> 1705df6cf9c97fe7505b556e501b8227b396a816
   
   console.log(req.body.material);
         queryValue=req.body.material;
@@ -181,7 +195,6 @@ app.post("/teacher-sign-in", passport.authenticate("local"), function(req, res) 
  console.log( "this is the request.user  ",req.user);
   res.json("/admin_course_list");
 });
-
 app.get("/teacher-sign",function(req,res){
   
   if (req.user) {
@@ -192,8 +205,12 @@ app.get("/teacher-sign",function(req,res){
   res.sendFile(path.join(__dirname, "../public/teacher-sign.html"));
   
 });
+<<<<<<< HEAD
 
 app.delete("/delete-section",isAtecher,function(req,res){
+=======
+app.delete("/delete-section",function(req,res){
+>>>>>>> 1705df6cf9c97fe7505b556e501b8227b396a816
  db.courseMaterial.destroy({ where: req.body }).then(function(data) {
   res.json(data);
 });

@@ -1,0 +1,55 @@
+/* Background Style*/
+
+body {
+    background-color: #f7f7f7;
+}
+
+/* Profile Info */
+#editbutton {
+    background-color: red; 
+}
+
+.container {
+    font-family: 'Roboto', sans-serif; 
+    background-color: white; 
+}
+
+h {
+    color: #2196f3; 
+    font-size: 50px; 
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+h3 {
+    color: #2196f3; 
+    font-size: 25px; 
+}
+
+img {
+    width: 200px; 
+    height: 200px; 
+    text-align: right; 
+}
+
+/* Footer */
+
+.footer {
+    background-color: #2196f3; 
+    left: 0; 
+    bottom: 0; 
+    width: 100%; 
+    color: white; 
+    height: 50px; 
+    font-family: 'Roboto', sans-serif; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: fixed; 
+}
+
+#copyright {
+    height: 25px; 
+}
