@@ -31,3 +31,6 @@
 .style3{
     font-size: 20px;
 }
+body{
+    background-image: linear-gradient(white, blue);
+}
