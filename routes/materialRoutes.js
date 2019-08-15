@@ -215,7 +215,8 @@ app.post("/create-course",isAtecher,upload.single("photo"),function (req, res) {
       
       console.log("this is the course id what i am looking for" ,response.dataValues.cid);
 
-      res.render("add-week",{cid:response.dataValues.cid});
+      res.render("add-week",{layout:"teachers-page",
+        cid:response.dataValues.cid});
   }
 
 ); 

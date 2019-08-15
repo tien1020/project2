@@ -207,10 +207,10 @@ app.get("/profile",isAstudent,function(req,res){
 });
 
 app.post("/profile-update",upload.single("photo"),function(req,res){
-  db.student.update({picture:req.file.filename},{where: {id:req.user.id}}
+ try{ db.student.update({picture:req.file.filename},{where: {id:req.user.id}}
     ).then(function(data){
       res.json(data);
-    })
+    })} catch{res.json("error")}
 })
 
 

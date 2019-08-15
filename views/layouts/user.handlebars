@@ -165,8 +165,10 @@ $(document).ready(function(){
     
      
    }).then(function(res){
-
-       window.location.replace("/profile")
+        if (res=="error"){
+            alert("please upload an image before you click on the link");
+        }
+      else { window.location.replace("/profile");}
    })
 })
 
