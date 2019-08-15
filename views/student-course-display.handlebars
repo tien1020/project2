@@ -1,46 +1,46 @@
- <div class="flex_container">
-        <div class="vertical-menu">
-            <a href="#" class="active">Course Content</a>
-            
-            <a href="/student-course-display/">chapter {{course.material.0.chapter_number}}</a>
-           
-        </div>
+<div class="row" style="height: 600px;
+    overflow: auto;">
+    <div class="col-2 my-side-bar">
 
-        <!-- Course Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    {{#each course.material}}
-                    <h1>{{chapter_title}} </h1>
-                    
-                    <br>
-                    <p>{{material}}</p>
-                    <img src="/upload-images/{{image_url}}">
-                    {{/each}}
+
+
+        <br>
+        <ul class="collapsible">
+            {{#each course.weekList}}
+            <li>
+                <div class="collapsible-header"><i class="material-icons">book</i> Week {{week}}</div>
+                {{#each chapter}}
+                <div class="collapsible-body"><span><a
+                            href="/student-course-display/{{../../course.cid}}/{{../week}}/{{this}}"> Chapter {{this}}
+                        </a></span></div>
+                {{/each}}
+            </li>
+            {{/each}}
+        </ul>
+
+
+
+    </div>
+
+    <div class="col-10"
+    style="background: steelblue">
+        
+        <div class="card">
+            <div class="card-panel" style="border-radius: 10px; background:aliceblue">
+                <h1 class="text-center black-text">{{{course.section.0.chapter_title}}}</h1>
+                
+                 {{#each course.section}}
+                 <h4 class="black-text">{{order_in_chapter}}.{{title}}</h4>
+                <p>{{material}}</p>
+
+                <div class="card-image waves-effect waves-block waves-light" style="width:fit-content" >
+                    <img class="activator" width="400px" height="400px" src="/upload-images/{{image_url}}">
                 </div>
+                {{/each}}
+
             </div>
         </div>
 
     </div>
 
-    <br>
-    <!-- Course Description -->
-    <div class="wrapper" id="courseDescription">
-        <h id="title">About This Chapter</h>
-        <p>
-            What is Lorem Ipsum?
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-        <br>
-        <div class="quiz">
-            <h id="title">Test Your Knowledge</h>
-            <button type="button" class="btn btn-danger" id="quizbutton">Quiz</button>
-        </div>
-    </div>
-
-    <br>
+</div>

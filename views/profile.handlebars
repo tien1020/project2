@@ -1,0 +1,50 @@
+<div class="row" style="height: 600px">
+<div class="col s4 m4 l4">
+
+    <div class="col s16 m6">
+    <h2 class="header" style="color: cornflowerblue">Profile</h2>
+    <div class="card horizontal">
+
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5>First name: <i style="color:#8A2BE2">{{user.firstname}}</i> </h5>
+           <h5>Last Name: <i style="color:#8A2BE2">{{user.lastname}}</i> </h5>
+           <h5>Email: <i style="color:#8A2BE2">{{user.email}}</i></h5>
+           <h5>Gender: <i style="color:#8A2BE2">{{user.gender}}</i></h5>
+           <h5>Birth Date: <i style="color:#8A2BE2">{{user.birth_date}}</i></h5>
+           <h5>Role: <i style="color:#8A2BE2">{{user.role}}</i></h5>
+        </div>
+        <div class="card-action">
+          <a id="profile-update">Update Your Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+            
+  <div class="col s6 m6">
+      <br><br><br><br><br>
+            <div class="card-image">
+        <img style="height: 300px; width:300px" src="/upload-images/{{user.picture}}">
+        <form action="#">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Picture</span>
+        <input type="file" id="picture">
+      </div>
+      
+      <div class="file-path-wrapper">
+
+        <input class="file-path validate" type="text">
+        
+      </div>
+      
+    </div>
+  </form>
+      </div>
+  </div>
+
+
+</div>
+
+
+</div>

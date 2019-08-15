@@ -1,33 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- template source - https://github.com/joashp
+        /material-design-template -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#2196F3">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Phil IT | Course Materials</title>
 
 
-    <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- CSS  -->
+
+  <link href="/min/plugin-min.css" type="text/css" rel="stylesheet">
+  <link href="/min/custom-min.css" type="text/css" rel="stylesheet">
+
+  <style>
+
+
+  </style>
+
+
 </head>
-<body>
-  
-<div class="container">
-        <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4 text-center">Northwestern Bootcamp Course</h1>
-                  <p class=" text-center">This page is for course Admins only</p>
-                </div>
-              </div>
-              
-              <br>
+
+<body id="top" class="scrollspy" style="font-family: monospace">
+  <!-- Pre Loader -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+  </div>
+
+  <!--Navigation-->
+  <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="/" id="logo-container" class="brand-logo">Teacher Platform</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#intro"> Profile</a></li>
+ 
+            <li>
+              <a class='dropdown-trigger btn' href='#' data-target='dropdown' id="logged-in" style="margin-right: 20px"
+                class=" waves-effect waves-light btn">User</a>
+              <ul id='dropdown' class='dropdown-content'>
+                <li><a id="sign" href="/signin.html"></a></li>
+
+              </ul>
+
+
+            </li>
+
+
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+
               
     <div class="row">
         <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-4" style="height: 600px
+        ">
             <h1>New Course</h1>
           
         <br>
@@ -35,7 +80,7 @@
         <input type="text" class="course-title form-control" id="formGroupExampleInput" placeholder="Enter Course Name">
 
         <label for="formGroupExampleInput">Course Description</label>
-        <input type="text" class="course-desc form-control" id="formGroupExampleInput" placeholder="Enter Course Description">
+        <textarea  class="course-desc" placeholder="Enter Course Description"></textarea>
 
         <label for="formGroupExampleInput">Course image</label>
         <input type="file" class="image" id="validatedCustomFile" required>
@@ -53,6 +98,16 @@
 
     </div>
 </div>
+<footer id="contact" class="page-footer default_color scrollspy">
+  <div class="container">
+
+    <div class="footer-copyright default_color">
+      <div class="container">
+        <h4 class="text-white">Phil IT &COPY;</h4>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 <script>
@@ -80,7 +135,9 @@ $(document).on("click",".add-course", function(){
     formData.append("courseInfo",newCourseInfo);
     createCourse(formData).then(function(res){
         console.log("success");
-        window.location.replace(res)
+        document.open();
+        document.write(res);
+        document.close();
     })
 
 })
@@ -96,6 +153,26 @@ function createCourse(data) {
       
     });
   }
+
+  $.ajax({
+     
+     type: "GET",
+     url: "/checkIfLogedIn",
+    
+     
+   }).then(function(res){
+ if (res=="no"){
+   $("#logged-in").html("User");
+   
+   $("#sign").html("Sign In");
+ }
+ else{
+   $("#logged-in").html(res.firstname);
+   
+   $("#sign").html("LogOut"); 
+    $("#sign").attr("href","/logout"); 
+ }
+   });
 
 </script>
 </html>

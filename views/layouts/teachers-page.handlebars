@@ -5,10 +5,9 @@
   <!-- template source - https://github.com/joashp
         /material-design-template -->
   <script src="https://code.jquery.com/jquery.js"></script>
-  
-  {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
@@ -48,8 +47,8 @@
         <div class="nav-wrapper">
           <a href="/admin_course_list" id="logo-container" class="brand-logo">Teacher Platform</a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#intro"> Profile</a></li>
- 
+            
+            <li><a href="#contact">Profile</a></li>
             <li>
               <a class='dropdown-trigger btn' href='#' data-target='dropdown' id="logged-in" style="margin-right: 20px"
                 class=" waves-effect waves-light btn">User</a>
@@ -88,6 +87,7 @@
   <script>
      $('.dropdown-trigger').dropdown();
       $('.dropdown-trigger-sid').dropdown();
+
     course_id = $(".other").data("course_id");
     week_number = $(".other").data("weeknum");
     chapter_number = $(".other").data("chapnum");
@@ -231,6 +231,7 @@
 
       });
     }
+    
 $.ajax({
      
       type: "GET",
@@ -250,7 +251,6 @@ $.ajax({
      $("#sign").attr("href","/logout"); 
   }
     });
-
 
   </script>
 

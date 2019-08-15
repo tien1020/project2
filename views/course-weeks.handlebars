@@ -1,9 +1,9 @@
 
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <h1>Course Material</h1>
-            <div class="card" style="width: 18rem;">
+    <div class="row" style="height: 600px">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1 style="text-align: center;">Course Material</h1>
+            <div class="card" style="width: 18rem;margin:auto">
                     <ul class="list-group list-group-flush">
                         {{#each weekList}}
                         <li class="list-group-item text-center"><a href="/coursechapters/{{../cid}}/{{week}}">week {{week}}</a></li>
@@ -14,15 +14,17 @@
                     </ul>
                   </div>
         <br>
-                    <a href="/add-week/{{cid}}" class="badge badge-primary">ADD week</a>
+               <a style="display: block;margin: auto;width:435px"href="/add-week/{{cid}}" class="material-icons right"> <button class="btn waves-effect blue" type="submit" name="action">New Week
 
-              </button>
+                    
+
+              </button> </a>
 
 
         
         
         </div>
-        <div class="col-4"></div>
+        <div class="col-3"></div>
 
     </div>
 </div>
