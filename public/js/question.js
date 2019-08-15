@@ -1,9 +1,8 @@
-console.log("hani")
+alert("here clicked")
 
-
-$("#thisone").on("click", function (event) {
+$(document).on("click","#thisone", function (event) {
     event.preventDefault();
-
+   alert("here clicked")
     var newQuestion = {
         title: $("#title").val().trim(),
         question: $("#question").val().trim()

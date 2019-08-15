@@ -3,8 +3,8 @@ var db = require("../models");
 module.exports = function (app) {
 
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('exampledb', 'Dawid', 'Element1234!',{
-  host: 'localhost',
+var sequelize = new Sequelize('skcig609ntkevc2l', 'nnn6xuangui1j3jx', 'awop8k5pifd36uk1',{
+  host: 'wvulqmhjj9tbtc1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   dialect: "mysql"
 });
 
@@ -24,7 +24,7 @@ app.get("/api/topics/:id",function(req,res){
     console.log(dbforumQuestion)
     if( dbforumQuestion[0] !=undefined)
     {
-      res.render("answer",{answer: dbforumQuestion,
+      res.render("answer",{layout:"user",answer: dbforumQuestion,
         title: dbforumQuestion[0].question_title,
         description: dbforumQuestion[0].question,
       id: parseInt(req.params.id)
@@ -34,7 +34,7 @@ app.get("/api/topics/:id",function(req,res){
     {
       db.forumQuestion.findOne({ where: { id: req.params.id } }).then(function(dbforumQuestion) {
    console.log(dbforumQuestion)
-    res.render("answer",{
+    res.render("answer",{layout:"user",
       answer: "",
       title: dbforumQuestion.title,
       description: dbforumQuestion.question,
@@ -76,7 +76,7 @@ app.get("/question",function(req,res){
   }).then(function(dbforumQuestion) {
        data={question:dbforumQuestion}
   //   console.log(dbforumQuestion)
-      res.render("question",data);
+      res.render("question",{layout:"user",question:dbforumQuestion});
    });
  
 });
@@ -97,7 +97,7 @@ app.post("/api/answer", function (req, res) {
 app.get("/answer",function(req,res){
   db.forumQuestion.findAll({}).then(function(dbforumQuestion) {
     data={question:dbforumQuestion}
-    res.render("answer",data);
+    res.render("answer",{layout:"user",question:dbforumQuestion});
     
 });
 
@@ -115,7 +115,7 @@ app.post("/api/topics/:id", function (req, res) {
   forumQuestionId: parseInt( req.body.forumQuestionId)
   }).then(function (dbforumAnswer) {
 
-    res.render("answer",{answer: dbforumAnswer.answer 
+    res.render("answer",{layout:"user",answer: dbforumAnswer.answer 
       
        });
   });
