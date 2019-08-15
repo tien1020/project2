@@ -34,10 +34,15 @@
         </form> --}}
             {{#each question}}
           <li data-id="{{this.id}}" class="list-group-item">
-               <b>Topic</b>: <br>{{this.title}} <br><br>
-             <b>Discussion</b> :
-              <p>  "{{this.question}}"</p>
-            <a href="api/topics/{{id}}" data-id="{{id}}" id="replyTo">reply to</a>
+              <div class="style3">
+               <b>Topic</b>:
+              </div>
+            {{this.title}} <br><br>
+               <div class="style3">
+                  <b>Discussion</b> : 
+               </div>
+              <p>"{{this.question}}"</p>
+            <a href="api/topics/{{id}}" data-id="{{id}}" id="replyTo">Reply to...</a>
           </li>
           <br>
           {{/each}}
