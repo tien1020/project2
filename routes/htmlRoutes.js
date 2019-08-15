@@ -12,9 +12,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/coursePage.html"));
   });
 
-  app.get("/question", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/question.html"));
-  });
+  // app.get("/question", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/question.html"));
+  // });
 
   app.get("/signin", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/signin.html"));

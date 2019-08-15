@@ -2,3 +2,35 @@
     padding: 30px;
     margin: 30px;
 }
+
+.style1{
+    height: auto;
+    padding: 10px;
+}
+
+.form-control{
+    height:100px;
+}
+.style2{
+    font-size: 20px;
+}
+
+.jumbotron{
+
+    padding: 30px;
+    box-shadow: 5px 10px 18px lightblue;
+  }
+  .list-group-item{
+    padding: 30px;
+    box-shadow: 5px 10px 18px lightblue;
+  }
+
+  .card{
+    padding: 10px; 
+  }
+.style3{
+    font-size: 20px;
+}
+body{
+    background-image: linear-gradient(white, blue);
+}
